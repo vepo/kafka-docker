@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  zookeerer-0:
+    build: zookeeper
+    image: zookeeper
+  kafka-0:
+    build: kafka
+    image: kafka
+    environment: 
+      ZOOKEEPER_CONNECT: "zookeerer-0:2181"
+    ports:
+      - 9092:9092
+  
